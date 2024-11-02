@@ -41,63 +41,22 @@
     ***********************************-->
     <div id="main-wrapper">
 
-        <!--**********************************
-            Nav header start
-        ***********************************-->
-
-        <!--**********************************
-            Header end ti-comment-alt
-        ***********************************-->
+        {{-- header --}}
         @include('partials.header')
-        <!--**********************************
-            Sidebar start
-        ***********************************-->
-        @include('partials.sidebar')
-        <!--**********************************
-            Sidebar end
-        ***********************************-->
 
-        <!--**********************************
-            Content body start
-        ***********************************-->
+        {{-- sidebar --}}
+        @include('partials.sidebar')
+
+        {{-- content --}}
         <div class="content-body">
-            <!-- row -->
             @yield('content')
         </div>
-        <!--**********************************
-            Content body end
-        ***********************************-->
 
-        <!--**********************************
-            Footer start
-        ***********************************-->
-        <div class="footer">
-            <div class="copyright">
-                <p>Copyright © Designed &amp; Developed by <a href="http://dexignzone.com/"
-                        target="_blank">DexignZone</a> 2020</p>
-            </div>
-        </div>
-        <!--**********************************
-            Footer end
-        ***********************************-->
-
-        <!--**********************************
-           Support ticket button start
-        ***********************************-->
-
-        <!--**********************************
-           Support ticket button end
-        ***********************************-->
-
+        {{-- footer --}}
+        @include('partials.footer')
 
     </div>
-    <!--**********************************
-        Main wrapper end
-    ***********************************-->
 
-    <!--**********************************
-        Scripts
-    ***********************************-->
     <!-- Required vendors -->
     <script src="{{ asset('assets/template/vendor/global/global.min.js') }}"></script>
     <script src="{{ asset('assets/template/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
