@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MataKuliahController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,5 +14,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 Route::resource('matakuliah', MataKuliahController::class);
+Route::get('/', [RegisterController::class, 'login'])->name('login');
+Route::get('/register', [RegisterController::class, 'index'])->name('register');
+Route::post('/store', [RegisterController::class, 'store'])->name('user.register');

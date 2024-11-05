@@ -11,7 +11,7 @@ class RegisterController extends Controller
      */
     public function index()
     {
-        //
+        return view('auth.register');
     }
 
     /**
@@ -27,7 +27,7 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**
@@ -60,5 +60,9 @@ class RegisterController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function login(){
+        return view('auth.login');
     }
 }

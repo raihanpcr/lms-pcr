@@ -15,12 +15,22 @@
                 </ul>
             </li>
             <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                    <i class="flaticon-381-television"></i>
-                    <span class="nav-text">Apps</span>
+                    <i class="flaticon-381-user"></i>
+                    <span class="nav-text">Pengguna</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="./app-profile.html">Profile</a></li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Email</a>
+                    <li><a href="index.html">Dosen</a></li>
+                    <li><a href="patient.html">Mahasiswa</a></li>
+
+                </ul>
+            </li>
+            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <i class="flaticon-381-television"></i>
+                    <span class="nav-text">Mata Kuliah</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li><a href="./app-profile.html">Mata Kuliah</a></li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Kelas</a>
                         <ul aria-expanded="false">
                             <li><a href="./email-compose.html">Compose</a></li>
                             <li><a href="./email-inbox.html">Inbox</a></li>
