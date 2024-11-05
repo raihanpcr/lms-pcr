@@ -11,7 +11,7 @@ class StoreMataKuliah extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,9 +25,10 @@ class StoreMataKuliah extends FormRequest
             'name' => 'required',
             'tgl_lahir' => 'required',
             'nohp' => 'required',
-            'email' => 'required|uniques:users|email',
+            'email' => 'required|unique:users|email',
             'role' => 'required',
             'password' => 'required',
+            'prodi' => 'required'
         ];
     }
 
@@ -37,7 +38,10 @@ class StoreMataKuliah extends FormRequest
             'name.required' => 'Nama Lengkap Wajib Diisi',
             'tgl_lahir.required' => 'Tanggal Lahir Wajib Diisi',
             'nohp.required' => 'No Handphone Wajib Diisi',
-            'email.required' => 'Email Wajib Diisi'
+            'email.required' => 'Email Wajib Diisi',
+            'role.required' => 'Mendaftar Sebagai Wajib Diisi',
+            'password.required' => 'Password Wajib diisi',
+            'prodi.required' => 'Program Studi Wajib diisi'
         ];
     }
 }

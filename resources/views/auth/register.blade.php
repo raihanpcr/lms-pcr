@@ -30,7 +30,7 @@
                                         {{-- nama lengkap  --}}
                                         <div class="form-group">
                                             <label class="mb-1 text-white"><strong>Nama Lengkap</strong></label>
-                                            <input type="text" name="name" class="form-control"
+                                            <input type="text" name="name" class="form-control text-black"
                                                 placeholder="Nama Lengkap">
                                         </div>
 
@@ -49,13 +49,25 @@
                                         <div class="form-group">
                                             <label class="mb-1 text-white"><strong>Email</strong></label>
                                             <input type="email" name="email" class="form-control text-black"
-                                                placeholder="mahasiswa@exmaple.com">
+                                                placeholder="nama@exmaple.com">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="mb-1 text-white"><strong>Program Studi</strong></label>
+                                            <select class="form-control text-black" name="prodi">
+                                                <option value="" disabled selected> -- Pilih -- </option>
+                                                @foreach ($programStudi as $prodi)
+                                                    <option value="{{ $prodi->name }}" class="text-black">
+                                                        {{ $prodi->tingkat }} - {{ $prodi->name }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
 
                                         {{-- role  --}}
                                         <div class="form-group">
-                                            <label class="mb-1 text-white"><strong>Role</strong></label>
+                                            <label class="mb-1 text-white"><strong>Mendaftar Sebagai</strong></label>
                                             <select class="form-control text-black" name="role">
+                                                <option value="" disabled selected> -- Pilih -- </option>
                                                 <option value="dosen" class="text-black">Dosen</option>
                                                 <option value="mahasiswa" class="text-black">Mahasiswa</option>
                                             </select>
@@ -71,7 +83,17 @@
                                             <button type="submit"
                                                 class="btn bg-white text-primary btn-block">Daftar</button>
                                         </div>
+                                        @if ($errors->any())
+                                            <div class="mt-4 alert alert-danger">
+                                                <ul>
+                                                    @foreach ($errors->all() as $error)
+                                                        <li>{{ $error }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        @endif
                                     </form>
+
                                     <div class="new-account mt-3">
                                         <p class="text-white">Sudah Mempunyai Akun <a class="text-white"
                                                 href="{{ route('login') }}">Login</a></p>
@@ -85,7 +107,7 @@
         </div>
     </div>
 
-    
+
     <!-- Required vendors -->
     <script src="{{ asset('assets/template/vendor/global/global.min.js') }}"></script>
     <script src="{{ asset('assets/template/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
