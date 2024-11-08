@@ -62,7 +62,8 @@
                                                         </svg>
                                                     </button>
                                                     <div class="dropdown-menu">
-                                                        <a class="dropdown-item" href="#">Edit</a>
+                                                        <a class="dropdown-item"
+                                                            href="{{ route('matakuliah.edit', $matkul->id) }}">Edit</a>
                                                         <form action="{{ route('matakuliah.destroy', $matkul->id) }}"
                                                             method="POST"
                                                             onsubmit=" return confirm('Apakah yakin menghapus data {{ $matkul->name }} ini ?');"

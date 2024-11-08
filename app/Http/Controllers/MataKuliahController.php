@@ -59,9 +59,9 @@ class MataKuliahController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(MataKuliah $mataKuliah)
+    public function edit(MataKuliah $mataKuliah, string $id)
     {
-        //
+        return view('mata-kuliah.edit');
     }
 
     /**
