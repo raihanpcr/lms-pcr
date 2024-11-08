@@ -53,14 +53,21 @@
                                         </div>
 
                                         <div class="form-group">
+                                            <label class="mb-1 text-white"><strong>Username</strong></label>
+                                            <input type="text" name="username" class="form-control text-black"
+                                                placeholder="Username">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="mb-1 text-white"><strong>Alamat</strong></label>
+                                            <input type="text" name="alamat" class="form-control text-black"
+                                                placeholder="Alamat Lengkap">
+                                        </div>
+
+                                        <div class="form-group">
                                             <label class="mb-1 text-white"><strong>Program Studi</strong></label>
-                                            <select class="form-control text-black" name="prodi">
-                                                <option value="" disabled selected> -- Pilih -- </option>
-                                                @foreach ($programStudi as $prodi)
-                                                    <option value="{{ $prodi->name }}" class="text-black">
-                                                        {{ $prodi->tingkat }} - {{ $prodi->name }}</option>
-                                                @endforeach
-                                            </select>
+                                            <input type="text" name="prodi" class="form-control text-black"
+                                                placeholder="Program Studi">
                                         </div>
 
                                         {{-- role  --}}

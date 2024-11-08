@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\MataKuliah\StoreMataKuliah;
+use App\Http\Requests\Users\StoreUsers;
 use App\Models\ProgramStudi;
 use Illuminate\Auth\Events\Registered;
 
@@ -32,10 +33,10 @@ class RegisterController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreMataKuliah $request)
+    public function store(StoreUsers $request)
     {
 
-        $nip_nim = str_pad(mt_rand(0, 99999999), 8, '0', STR_PAD_LEFT);
+        $nip_nim = ($request->input('role') == 'mahasiswa' ? "02" : "01") . str_pad(mt_rand(0, 99999999), 8, '0', STR_PAD_LEFT);
 
         $user = User::create([
             'name' => $request->input('name'),
@@ -43,9 +44,9 @@ class RegisterController extends Controller
             'phone' => $request->input('nohp'),
             'role' => $request->input('role'),
             'password' => Hash::make($request->input('password')),
-            'username' => 'username',
+            'username' => $request->input('username'),
             'nip_nim' => $nip_nim,
-            'alamat' => 'dimana aja',
+            'alamat' => $request->input('alamat'),
             'prodi' => $request->input('prodi'),
             'tgl_lahir' => $request->input('tgl_lahir'),
             'is_active' => 0
@@ -56,7 +57,6 @@ class RegisterController extends Controller
         $user->sendEmailVerificationNotification();
 
         return redirect()->route('verification.notice');
-        // dd($request->all());
     }
 
     public function sendVerfikasiEmail(){
@@ -149,7 +149,4 @@ class RegisterController extends Controller
         //
     }
 
-    public function login(){
-        return view('auth.login');
-    }
 }
