@@ -16,6 +16,10 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $table = "users";
     protected $guarded = ['id'];
 
+    public function mataKuliah()
+    {
+        return $this->hasMany(MataKuliah::class, 'user_id');
+    }
     
     protected $hidden = [
         'password',

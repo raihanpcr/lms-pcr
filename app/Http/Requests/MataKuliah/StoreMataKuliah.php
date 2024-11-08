@@ -23,25 +23,24 @@ class StoreMataKuliah extends FormRequest
     {
         return [
             'name' => 'required',
-            'tgl_lahir' => 'required',
-            'nohp' => 'required',
-            'email' => 'required|unique:users|email',
-            'role' => 'required',
-            'password' => 'required',
-            'prodi' => 'required'
+            'pengajar' => 'required',
+            'tgl_mulai' => 'required|date',
+            'tgl_akhir' => 'required|date|after_or_equal:tgl_mulai',
+            'desc' => 'required',
         ];
     }
 
     public function messages()
     {
         return[
-            'name.required' => 'Nama Lengkap Wajib Diisi',
-            'tgl_lahir.required' => 'Tanggal Lahir Wajib Diisi',
-            'nohp.required' => 'No Handphone Wajib Diisi',
-            'email.required' => 'Email Wajib Diisi',
-            'role.required' => 'Mendaftar Sebagai Wajib Diisi',
-            'password.required' => 'Password Wajib diisi',
-            'prodi.required' => 'Program Studi Wajib diisi'
+            'name.required' => 'Nama Mata Kuliah Wajib Diisi',
+            'pengajar.required' => 'Pengajar Wajib Diisi',
+            'tgl_mulai.required' => 'Tanggal mulai harus diisi.',
+            'tgl_mulai.date' => 'Tanggal mulai harus berformat tanggal yang valid.',
+            'tgl_akhir.required' => 'Tanggal akhir harus diisi.',
+            'tgl_akhir.date' => 'Tanggal akhir harus berformat tanggal yang valid.',
+            'tgl_akhir.after_or_equal' => 'Tanggal akhir harus lebih besar atau sama dengan tanggal mulai.',
+            'desc.required' => 'Deskripsi Wajib diisi'
         ];
     }
 }
